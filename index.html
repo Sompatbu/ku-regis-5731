@@ -4,6 +4,8 @@
     <!-- CSS file -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/css/todo.css">
+	
+	<title>KU Regis</title>
   </head>
   <body>
     <!-- Import scripts -->
@@ -15,12 +17,15 @@
     <!-- App controller -->
     <script src="src/js/controller/todo.js"></script>
     <script src="src/js/route/route.js"></script>
+	<script src="src/js/controller/schedule.js"></script>
+	<script src="src/js/controller/login.js"></script>
 
     <!-- some navigation -->
     <ul class="nav nav-pills">
-    <li role="presentation"><a ui-sref="home">Home</a></li>
-    <li role="presentation"><a ui-sref="changepage">Change Page</a></li>
-  </ul>
+    <!--<li role="presentation"><a ui-sref="home">Home</a></li>
+    <li role="presentation"><a ui-sref="changepage">Change Page</a></li>//-->
+	<li role="presentation"><a ui-sref="login">Login</a></li>
+	</ul>
 
     <div ui-view></div>
   </body>

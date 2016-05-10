@@ -1,0 +1,70 @@
+<div class="row">
+  <div ng-controller="TodoListController as todoList">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-7">
+	<h2>KU Regis</h2>
+  
+  
+    <!--<span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+    [ <a href="" ng-click="todoList.archive()">archive</a> ]//-->
+	
+    
+	<ul class="animate-repeat" ng-repeat="todo in todoList.todos">
+		<div class="panel panel-primary">
+			<div class="panel-heading">{{todo.id}} {{todo.name.en}} </div>
+			<div class="panel-body">{{todo.description.en}}<br>
+			<b>Prerequisite Course:</b> {{todo.prereq[0].id}}<br>
+			<b>Simultaneous with Prerequisite Course:</b> {{todo.prereq[0].simultaneous}}<br>
+			<b>Credit:</b> <b>Total:</b> {{todo.credit.total}} (<b>Lecture:</b> {{todo.credit.lecture}} <b>Lab:</b> {{todo.credit.lab}})
+			</div>
+			
+			<button ng-click="todoList.addSchedule(todo)" class="btn btn-primary" type="submit" value="Enroll">Enroll</button>
+			
+		</div>
+    </ul>
+	
+	<!--<label>Search by Course ID or Course Name: <input ng-model="search.$"></label>
+		<table id="searchObjResults">
+			<tr><th>Course ID</th> <th>Course Name</th> <th>Credits</th></tr>
+			<tr ng-repeat="todo in todoList.todos ">
+				<td>{{todo.id}}</td> 
+				<td>{{todo.name.en}}</td> 
+				<td>Total: {{todo.credit.total}} Lecture: {{todo.credit.lecture}} Lab: {{todo.credit.lab}}</td>
+			</tr>
+		</table>//-->
+      <!--<li ng-repeat="todo in todoList.todos">
+		<a href="http://www.w3schools.com/html/"><label class="checkbox">
+          <input type="checkbox" ng-model="todo.done">
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </label></a>
+      </li>//-->
+    
+    <!--<form ng-submit="todoList.addTodo()">
+      <input type="text" ng-model="todoList.todoText"  size="30"
+             placeholder="add new todo here">
+      <input class="btn btn-primary" type="submit" value="Add">
+    </form>//-->
+	
+  
+  </div>
+  <div class="col-sm-3">
+  <h2>Current</h2>
+		<div class="panel panel-primary">
+			<div class="panel-heading">Credits {{todoList.credit}} / 22</div>
+			<div class="panel-body">
+						<ul class="animate-repeat" ng-repeat="todo in todoList.schedule">
+						<div class="panel panel-default">
+							<div class="panel-heading">{{todo.id}} {{todo.name.en}} </div>
+						
+						<div class="panel-body">Credits: {{todo.credit.total}} <br>
+						<button ng-click="todoList.archive(todo, todoList.schedule)" class="btn btn-primary" type="submit" value="Drop">Drop</button></div></div>
+					
+					</ul>
+					<button ng-click="todoList.toJSON()" class="btn btn-primary" type="submit" value="Submit">Submit</button></div></div>
+				</div>
+			</div>
+		
+  </div>
+
+  </div>
+</div>

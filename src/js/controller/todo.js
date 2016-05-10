@@ -31,10 +31,17 @@ angular.module('todoApp', ['ui.router'])
 	  ]*/
 
     todoList.addSchedule = function (todo) {
-      todoList.schedule.push(todo)
-	  todoList.credit = todoList.credit + todo.credit.total;
-	  console.log(todo);
-	  console.log(todoList.schedule);
+      if (todoList.credit + todo.credit.total <= 22)
+	  {
+		todoList.schedule.push(todo)
+		todoList.credit = todoList.credit + todo.credit.total;
+		console.log(todo);
+		console.log(todoList.schedule);
+	  }
+	  else
+	  {
+		alert("You have exceed the maximum credit per semester");
+	  }
       //todoList.todoText = ''
     }
 
@@ -60,17 +67,21 @@ angular.module('todoApp', ['ui.router'])
     }
 	
 	todoList.toJSON = function () {
-	  prompt("Please copy from textbox below or in Console", JSON.stringify(todoList.schedule));
-      console.log(JSON.stringify(todoList.schedule));
+	  var json = [];
+	  json.push("5610545731");
+	  json.push(todoList.schedule);
+	  prompt("Please copy from textbox below or in Console", JSON.stringify(json));
+      console.log(JSON.stringify(json));
     }
   })
   .controller('LoginController', function($state) {
     var login = this
-	
+	login.stat = false;
 	
 	login.auth = function (user, password) {
 		if(user == '5610545731' && password == '1234')
 		$state.go('home');
+		login.stat = true;
 		console.log(true);
 	}
   })

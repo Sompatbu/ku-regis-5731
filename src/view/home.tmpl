@@ -13,8 +13,9 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">{{todo.id}} {{todo.name.en}} </div>
 			<div class="panel-body">{{todo.description.en}}<br>
-			Prerequisite Course: {{todo.prereq[0].id}}<br>
-			Simultaneous with Prerequisite Course: {{todo.prereq[0].simultaneous}}<br>
+			<b>Prerequisite Course:</b> {{todo.prereq[0].id}}<br>
+			<b>Simultaneous with Prerequisite Course:</b> {{todo.prereq[0].simultaneous}}<br>
+			<b>Credit:</b> <b>Total:</b> {{todo.credit.total}} (<b>Lecture:</b> {{todo.credit.lecture}} <b>Lab:</b> {{todo.credit.lab}})
 			</div>
 			
 			<button ng-click="todoList.addSchedule(todo)" class="btn btn-primary" type="submit" value="Enroll">Enroll</button>
@@ -56,7 +57,7 @@
 							<div class="panel-heading">{{todo.id}} {{todo.name.en}} </div>
 						
 						<div class="panel-body">Credits: {{todo.credit.total}} <br>
-						<button ng-click="todoList.archive(todo)" class="btn btn-primary" type="submit" value="Drop">Drop</button></div></div>
+						<button ng-click="todoList.archive(todo, todoList.schedule)" class="btn btn-primary" type="submit" value="Drop">Drop</button></div></div>
 					
 					</ul>
 					<button ng-click="todoList.toJSON()" class="btn btn-primary" type="submit" value="Submit">Submit</button></div></div>

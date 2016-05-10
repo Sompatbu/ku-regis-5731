@@ -8,11 +8,11 @@
       <input type="text" name="userName"
              ng-model="user.name"
              ng-model-options="{ getterSetter: true }" /><br>
-	  Password:<input type="password" name="password"
+	  Password: <input type="password" name="password"
              ng-model="pass.word"
              ng-model-options="{ getterSetter: true }" />
     </label>
-	<button ng-click="login.auth(user.name, pass.word)" class="btn btn-primary" type="submit" value="Enroll">Enroll</button>
+	<br><button ng-click="login.auth(user.name, pass.word)" class="btn btn-primary" type="submit" value="Login">Login</button>
   </form>
    </div>
 </div>
